@@ -9,8 +9,8 @@ int main() {
 		int x, y, shipLen;
 		bool horisontal;
 		board.printBoard();
-		cout << "Put ship(x, y, (1 if horisontal, 0 if vertical), shipLen";
-		cin >> x >> y >> horisontal >> shipLen;
+		cout << "Put ship(x, y, (1 if horisontal, 0 if vertical), shipLen\n\n--> ";
+		cin >> y >> x >> horisontal >> shipLen;
 		board.putShip(x, y, horisontal, shipLen);
 	}
 }

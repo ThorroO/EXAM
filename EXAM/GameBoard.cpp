@@ -51,12 +51,36 @@ void GameBoard::printBoard() {
 void GameBoard::putShip(int x, int y, bool horisontal, int shipLen) {
 	if (horisontal == true) {
 		for (int a = 0; a < shipLen; a++) {
+			if (x > 9 || y + a > 9 || dots[x][y + a] != 0) {
+				cerr << "The ship pulls a prank on you" << endl;
+				return;
+			}
+		}
+		for (int a = 0; a < shipLen; a++) {
 			dots[x][y + a] = 1;
+			ships++;
 		}
 	}
 	else {
 		for (int a = 0; a < shipLen; a++) {
-			dots[x + a][y] = 1;
+			if (x + a > 9 || y > 9 || dots[x + a][y] != 0) {
+				cerr << "The ship pulls a prank on you" << endl;
+				return;
+			}
 		}
+		for (int a = 0; a < shipLen; a++) {
+			dots[x + a][y] = 1;
+			ships++;
+		}
+	}
+}
+
+void GameBoard::shoot(int x, int y) {
+	if (dots[x][y] == 1) {
+		dots[x][y] = 2;
+		ships--;
+	}
+	else {
+		dots[x][y] = 3;
 	}
 }

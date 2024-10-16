@@ -10,7 +10,7 @@ public:
 	int getShips();
 	void printBoard();
 	~GameBoard();
-	//void shoot();
+	void shoot(int x, int y);
 	void putShip(int x, int y, bool horisontal, int shipLen);
 };
 
